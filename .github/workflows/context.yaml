@@ -1,0 +1,7 @@
+name: contexts
+on: push
+jobs:
+  print:
+    runs-on: ubuntu-lastet
+    steps:
+      - run: echo "${{ github.actor }}"
