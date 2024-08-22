@@ -1,7 +1,7 @@
 name: Test
-on:
-  pull_request:
-    paths: ['.github/workflows/*.yml', '.github/workflows/*.yaml' ]
+on: push
+  # pull_request:
+  #   paths: ['.github/workflows/*.yml', '.github/workflows/*.yaml' ]
 defaults:
   run:
     shell: bash
