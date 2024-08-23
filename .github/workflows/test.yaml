@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest 
     timeout-minutes: 5
     steps:
-      - run: docker --version
+      - run: echo "::debug::DEBUG MESSAGE"
       # - uses: actions/checkout@4
       # - run: |
       #     docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" rhysd/actionlint:latest
