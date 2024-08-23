@@ -14,9 +14,9 @@ jobs:
     timeout-minutes: 5
     steps:
       - run: |
-          set -x
-          hostname
-          date
+          echo "::group::LOGGGGGGGGGG"
+          printenv
+          echo "::group::"
       # - uses: actions/checkout@4
       # - run: |
       #     docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" rhysd/actionlint:latest
