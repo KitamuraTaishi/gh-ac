@@ -13,19 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - run: sleep 15 && echo "test1" 
+      - id: test_1
+        run: echo "result=TTEESST" >> "${GITHUB_OUTPUT}"
+    outputs:
+      result: ${{ steps.test_1.outputs.result }}
   test2:
     runs-on: ubuntu-latest
     needs: [test1]
     timeout-minutes: 5
     steps:
-      - run: sleep 15 && echo "test2"
-  test3:
-    runs-on: ubuntu-latest
-    needs: [test2]
-    timeout-minutes: 5
-    steps:
-      - run: sleep 15 && echo "test3"
+      - run: echo ${RESULT}
+        env:
+          RESULT: ${{ needs.test1.outputs.result }}
 
   
   # test:
