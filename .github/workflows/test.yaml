@@ -14,9 +14,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - run: |
-          echo "::group::LOGGGGGGGGGG"
-          printenv
-          echo "::group::"
+          echo "::add-mask::${PASS}"
+          echo "${PASS}"
+        env:
+          PASS: secretesssssssssssssssssssssssssss
       # - uses: actions/checkout@4
       # - run: |
       #     docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" rhysd/actionlint:latest
