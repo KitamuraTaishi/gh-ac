@@ -19,6 +19,9 @@ jobs:
           echo "::notice::NOTICE"
 
           echo "### Title :rocket: " >> "${GITHUB_STEP_SUMMARY}"
+          echo "- first line" >> "${GITHUB_STEP_SUMMARY}"
+          echo "- second line" >> "${GITHUB_STEP_SUMMARY}"
+
       # - uses: actions/checkout@4
       # - run: |
       #     docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" rhysd/actionlint:latest
