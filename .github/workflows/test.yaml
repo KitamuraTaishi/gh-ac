@@ -9,18 +9,36 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  test:
-    runs-on: ubuntu-latest 
+  test1:
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - run: |
-          echo "::error::ERROR"
-          echo "::warning::WARNING"
-          echo "::notice::NOTICE"
+      - run: sleep 15 && echo "test1" 
+  test2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: sleep 15 && echo "test2"
+  test3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: sleep 15 && echo "test3"
 
-          echo "### Title :rocket: " >> "${GITHUB_STEP_SUMMARY}"
-          echo "- first line" >> "${GITHUB_STEP_SUMMARY}"
-          echo "- second line" >> "${GITHUB_STEP_SUMMARY}"
+  
+  # test:
+  #   runs-on: ubuntu-latest 
+  #   timeout-minutes: 5
+  #   steps:
+  #     - run: |
+
+  #         echo "::error::ERROR"
+  #         echo "::warning::WARNING"
+  #         echo "::notice::NOTICE"
+
+  #         echo "### Title :rocket: " >> "${GITHUB_STEP_SUMMARY}"
+  #         echo "- first line" >> "${GITHUB_STEP_SUMMARY}"
+  #         echo "- second line" >> "${GITHUB_STEP_SUMMARY}"
 
       # - uses: actions/checkout@4
       # - run: |
