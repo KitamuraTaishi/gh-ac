@@ -9,22 +9,42 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  test1:
+  upload:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - id: test_1
-        run: echo "result=TTEESST" >> "${GITHUB_OUTPUT}"
-    outputs:
-      result: ${{ steps.test_1.outputs.result }}
-  test2:
+      - run: date > date.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: uploaded
+          path: date.txt
+          retention-days: 7
+
+  download:
     runs-on: ubuntu-latest
-    needs: [test1]
     timeout-minutes: 5
     steps:
-      - run: echo ${RESULT}
-        env:
-          RESULT: ${{ needs.test1.outputs.result }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: uploaded
+          path: downloaded
+      - run: cat downloaded/date.txt
+  # test1:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 5
+  #   steps:
+  #     - id: test_1
+  #       run: echo "result=TTEESST" >> "${GITHUB_OUTPUT}"
+  #   outputs:
+  #     result: ${{ steps.test_1.outputs.result }}
+  # test2:
+  #   runs-on: ubuntu-latest
+  #   needs: [test1]
+  #   timeout-minutes: 5
+  #   steps:
+  #     - run: echo ${RESULT}
+  #       env:
+  #         RESULT: ${{ needs.test1.outputs.result }}
 
   
   # test:
