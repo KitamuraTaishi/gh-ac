@@ -1,0 +1,25 @@
+name: Dump
+description: |
+  it is useful to debug
+inputs:
+  enable-context:
+    default: 'true'
+    required: false
+    description: 'log'
+outputs:
+  dumped-date:
+    value: ${{ steps.current.outputs.date }}
+    description: 'dump log'
+runs:
+  using: composite
+  steps:
+    - run: printenv | sort
+      shell: bash
+    - run: echo "${CONTEXT}"
+      if: ${{ inputs.enable-context == 'ture' }}
+      env:
+        CONTEXT: ${{ toJSON(github) }}
+      shell: bash
+    - id: current
+      run: echo "date=$(date)" >> "${GITHUB_OUTPUT}"
+      shell: bash
