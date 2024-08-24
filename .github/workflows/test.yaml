@@ -1,25 +1,28 @@
-name: Test
-on: push
-  # pull_request:
-  #   paths: ['.github/workflows/*.yml', '.github/workflows/*.yaml' ]
-defaults:
-  run:
-    shell: bash
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+name: Old
+on: workflow_dispatch
 jobs:
-  debug:
-    runs-on: ubuntu-latest 
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4  
-      - uses: ./.github/actions/dump/
-        id: dump
-        with:
-          enable-context: 'true'
-      - run: echo "${DATE}"
-        env: 
-          DATE: ${{ steps.dump.outputs.dumped-date }}
+      - uses: actions/setup-go@v4
+# defaults:
+#   run:
+#     shell: bash
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.ref }}
+#   cancel-in-progress: true
+# jobs:
+#   debug:
+#     runs-on: ubuntu-latest 
+#     steps:
+#       - uses: actions/checkout@v4  
+#       - uses: ./.github/actions/dump/
+#         id: dump
+#         with:
+#           enable-context: 'true'
+#       - run: echo "${DATE}"
+#         env: 
+#           DATE: ${{ steps.dump.outputs.dumped-date }}
   # upload:
   #   runs-on: ubuntu-latest
   #   timeout-minutes: 5
