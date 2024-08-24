@@ -1,4 +1,4 @@
-name: Old
+name: TEST
 on: push
 jobs:
   test:
