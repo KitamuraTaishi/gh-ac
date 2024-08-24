@@ -1,10 +1,19 @@
 name: Old
-on: workflow_dispatch
+on: push
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions: 
+      contents: write
+      pull-requests: write
+    env: 
+          GITHUB_TOKEN: ${{ sectets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/setup-go@v5
+      - run: echo "${GITHUB_HEAD_REF}"
+      - run: printenv | grep -i github 
+        # env:
+
+        
 # defaults:
 #   run:
 #     shell: bash
