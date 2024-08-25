@@ -1,4 +1,5 @@
 name: TEST
+# run-name: TEST - toJSON(github.event.*.message.*)
 on: push
 defaults:
   run:
@@ -10,7 +11,7 @@ jobs:
     steps:
       - run: echo "${EVENT}"
         env:
-          EVENT: ${{ toJSON(github.event.*.message) }}
+          EVENT: ${{ toJSON(github.event.*.message.*) }}
 
 # jobs:
 #   test:
