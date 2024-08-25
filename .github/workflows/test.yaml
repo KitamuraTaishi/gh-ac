@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: echo "${{ github.ref }}"
       - uses: actions/checkout@v4
-      - run: git branch
+      - run: git log
 # jobs:
 #   test:
 #     runs-on: ubuntu-latest
