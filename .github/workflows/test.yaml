@@ -1,5 +1,5 @@
 name: TEST
-run-name: TEST -  ${{ toJSON(github.event.*.message) }} by ${{ github.author }}
+run-name: TEST -  ${{ toJSON(github.event.*.message) }} by ${{ github.actor }}
 on: push
 defaults:
   run:
