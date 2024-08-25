@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: echo "${EVENT}"
         env:
-          EVENT: ${{ toJSON(github) }}
+          EVENT: ${{ toJSON(github.event.*.message) }}
 
 # jobs:
 #   test:
