@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - run: echo success!!!!
-      - if: ${{ failure() }}
-        run: echo "its faiure!!"
+      - run: echo "${EVENT}"
+        env:
+          EVENT: ${{ toJSON(github) }}
 
 # jobs:
 #   test:
