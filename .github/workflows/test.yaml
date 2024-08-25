@@ -1,17 +1,28 @@
-name: Old
+name: TEST
 on: push
+defaults:
+  run:
+    shell: bash
 jobs:
   test:
     runs-on: ubuntu-latest
-    permissions: 
-      contents: write
-      pull-requests: write
-    env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    timeout-minutes: 5
     steps:
+      - run: echo "${{ github.ref }}"
       - uses: actions/checkout@v4
-      - run: echo "${GITHUB_HEAD_REF}"
-      - run: printenv | grep -i github 
+      - run: git branch
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     permissions: 
+#       contents: write
+#       pull-requests: write
+#     env: 
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     steps:
+#       - uses: actions/checkout@v4
+#       - run: echo "${GITHUB_HEAD_REF}"
+#       - run: printenv | grep -i github 
         # env:
 
         
