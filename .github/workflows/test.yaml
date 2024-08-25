@@ -7,10 +7,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    if: ${{ always() }}
     steps:
-      - run: echo "${{ github.ref }}"
-      - uses: actions/checkout@v4
-      - run: git log -10
+      - run: echo "its success!!"
+      - run: echo "${{ github.base_ref }}"
 # jobs:
 #   test:
 #     runs-on: ubuntu-latest
