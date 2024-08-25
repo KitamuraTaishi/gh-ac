@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - run: exit 1
+      - run: echo success!!!!
       - if: ${{ failure() }}
         run: echo "its faiure!!"
 
