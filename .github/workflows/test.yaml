@@ -9,8 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - run: export TEST="hello"
+      - id: test
+        run: echo "TEST=hello" >> "{GITHUB_OUTPUT}"
       - run: echo "${TEST}"
+        env:
+          TEST: ${{ steps.test.outputs.TEST }}
 
 # jobs:
 #   test:
