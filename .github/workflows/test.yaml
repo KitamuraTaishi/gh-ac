@@ -1,5 +1,5 @@
 name: TEST
-run-name: TEST -  ${{ toJSON(github.event.*.message) }} by ${{ github.actor }}
+run-name: TEST -  ${{ toJSON(github.event.*.message) }} by ${{ github.actor }} ${{ github.workflow }}
 on: push
 defaults:
   run:
@@ -12,11 +12,7 @@ jobs:
       pull-requests: write
       contents: read
     steps:
-      - shell: bash
-        run: echo "${SHELL}"
-      - shell: python
-        run: |
-          print([ f"hello_{i}" for i in range(5)])
+      - run: sleep 120
       # - uses: actions/checkout@v4
       # - run: echo "${GITHUB_HEAD_REF}"
       #   env:
