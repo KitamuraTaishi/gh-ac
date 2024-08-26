@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - id: test
-        run: echo "TEST=hello" >> "{GITHUB_OUTPUT}"
+        run: echo "TEST=hello" >> "${GITHUB_OUTPUT}"
       - run: echo "${TEST}"
         env:
           TEST: ${{ steps.test.outputs.TEST }}
