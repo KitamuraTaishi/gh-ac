@@ -1,6 +1,6 @@
 name: TEST
 run-name: TEST -  ${{ toJSON(github.event.*.message) }} by ${{ github.actor }}
-on: push
+on: pull_request
 defaults:
   run:
     shell: bash
@@ -8,10 +8,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions: 
+      pull-requests: write
+      contents: read
     steps:
-      - id: test
-        run: echo "TEST=hello" >> "${GITHUB_ENV}"
-      - run: echo "${TEST}"
+      - run: actions/checkout@v4
+      - run: echo "${GITHUB_HEAD_REF}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
 
 # jobs:
