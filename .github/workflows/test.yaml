@@ -1,11 +1,12 @@
 name: TEST
-run-name: TEST -  ${{ toJSON(github.event.*.message) }} by ${{ github.actor }} ${{ github.workflow }}
+run-name: TEST -  ${{ toJSON(github.event.*.message) }} by ${{ github.actor }} ${{ github.ref }}
 on: push
 defaults:
   run:
     shell: bash
 concurrency:
   group: ${{ github.workflow }}
+  cancel-in-progress: true
 jobs:
   test:
     runs-on: ubuntu-latest
