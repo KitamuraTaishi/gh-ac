@@ -1,6 +1,6 @@
 name: TEST
 run-name: TEST -  ${{ toJSON(github.event.*.message) }} by ${{ github.actor }}
-on: pull_request
+on: push
 defaults:
   run:
     shell: bash
@@ -12,10 +12,14 @@ jobs:
       pull-requests: write
       contents: read
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "${GITHUB_HEAD_REF}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - shell: bash
+        run: echo "${SHELL}"
+      - shell: python
+        run: python --version
+      # - uses: actions/checkout@v4
+      # - run: echo "${GITHUB_HEAD_REF}"
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
 
 # jobs:
