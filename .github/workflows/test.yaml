@@ -15,7 +15,8 @@ jobs:
       - shell: bash
         run: echo "${SHELL}"
       - shell: python
-        run: python --version
+        run: |
+          [ f"hello_{i}" for i in range(5)]
       # - uses: actions/checkout@v4
       # - run: echo "${GITHUB_HEAD_REF}"
       #   env:
