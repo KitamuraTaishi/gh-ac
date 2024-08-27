@@ -21,3 +21,5 @@ runs:
       env:
         TEST:  ${{ inputs.input_text }}
       shell: bash 
+    - run: "${GITHUB_ACTION_PATH}/test.sh"
+      shell: bash
