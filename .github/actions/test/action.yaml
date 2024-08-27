@@ -15,7 +15,7 @@ runs:
   steps:
     - run: printenv | sort
       shell: bash
-    - if: ${{ contents(inputs.input_text, 'test') }}
+    - if: ${{ contains(inputs.input_text, 'test') }}
       id: test
       run: echo "result=[${TEST}]_is_input_word!!!" >> "${GITHUB_OUTPUT}"
       env:
