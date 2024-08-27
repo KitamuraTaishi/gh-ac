@@ -19,5 +19,5 @@ runs:
       id: test
       run: echo "result=[${TEST}]_is_input_word!!!" >> "${GITHUB_OUTPUT}"
       env:
-        TEST:  ${{ inputs.input_text}}
+        TEST:  ${{ inputs.input_text }}
       shell: bash 
