@@ -20,7 +20,7 @@ jobs:
         id: test
       - run: echo "${RESULT}"
         env:
-          RESULT: ${{ steps.test.output.output_text }}
+          RESULT: ${{ steps.test.outputs.output_text }}
       # - uses: actions/checkout@v4
       # - run: echo "${GITHUB_HEAD_REF}"
       #   env:
