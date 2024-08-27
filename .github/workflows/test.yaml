@@ -15,7 +15,11 @@ jobs:
       pull-requests: write
       contents: read
     steps:
-      - run: sleep 120
+      - uses: ./.github/actions/test/
+        id: test
+      - run: echo "${RESULT}"
+        env:
+          RESULT: ${{ steps.test.output.output_text }}
       # - uses: actions/checkout@v4
       # - run: echo "${GITHUB_HEAD_REF}"
       #   env:
