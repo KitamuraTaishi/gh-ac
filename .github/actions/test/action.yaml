@@ -3,7 +3,7 @@ description:
   ffffffff
 inputs:
   input_text:
-    default: default
+    default: test
     required: true
     description: ffff
 outputs:
