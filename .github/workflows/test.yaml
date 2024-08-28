@@ -16,7 +16,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - run: docker --version
+      - run: ls -al
       # - uses: ./.github/actions/test/
       #   id: test
       # - run: echo "${RESULT}"
