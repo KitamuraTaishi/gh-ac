@@ -21,7 +21,8 @@ jobs:
     steps:
       - run: echo "${GH_REP}"
         env:
-          GH_REP: ${{ github.repository_owner }}
+          TEST: ${{ github.repository_owner }}
+          GH_REP: ${{ env.TEST }}
 
   # publish:
   #   runs-on: ubuntu-latest
