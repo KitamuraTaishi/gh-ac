@@ -22,10 +22,10 @@ jobs:
     env:
       GITHUB_REPOSITORY: ${{ github.repository_owner }}
     steps:
-      - run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+      - run: echo "REPO=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
         env:
           GH_REP: ${{ env.REPO }}
-      - run: echo "${GH_REP}"
+      - run: echo "${REPO}"
 
   # publish:
   #   runs-on: ubuntu-latest
