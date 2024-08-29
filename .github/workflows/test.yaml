@@ -15,15 +15,17 @@ concurrency:
   cancel-in-progress: true
 env:
   IMAGE_NAME: gha-image
-  TEST: ${{ github.repository_owner }}
+  
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_REPOSITORY: ${{ github.repository_owner }}
     steps:
-      - run: echo "${GH_REP}"
+      - run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
         env:
           
-          GH_REP: ${{ env.TEST }}
+          GH_REP: ${{ env.REPO }}
 
   # publish:
   #   runs-on: ubuntu-latest
