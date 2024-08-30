@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 env:
   IMAGE_NAME: gha-image
-  VERSION: v1.0.0
+  VERSION: 1.0.0
 jobs:
   publish:
     runs-on: ubuntu-latest
