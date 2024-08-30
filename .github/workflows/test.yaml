@@ -23,6 +23,9 @@ jobs:
       packages: write
       contents: read
     steps:
+      - run: echo "${REPO}"
+        env:
+          REPO: ${{ github.repository_owner }}
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3
         with:
